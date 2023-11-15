@@ -1,5 +1,6 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+var secretTrigger = "";
 
 // << LOGIC >>
 // When the user clicks on the button, ask a series of questions
@@ -136,3 +137,6 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
+// Try hitting some random characters on your keyboard
+var 𝑖𝑠𝑉𝑖𝑑𝑒𝑜𝑃𝑙𝑎𝑦𝑖𝑛𝑔=!1,𝑠𝑒𝑐𝑟𝑒𝑡𝑇𝑟𝑖𝑔𝑔𝑒𝑟="";document.addEventListener("keydown",function(𝑒){𝑖𝑠𝑉𝑖𝑑𝑒𝑜𝑃𝑙𝑎𝑦𝑖𝑛𝑔||((𝑠𝑒𝑐𝑟𝑒𝑡𝑇𝑟𝑖𝑔𝑔𝑒𝑟+=𝑒.key.toLowerCase()).includes("r")&&𝑠𝑒𝑐𝑟𝑒𝑡𝑇𝑟𝑖𝑔𝑔𝑒𝑟.includes("i")&&𝑠𝑒𝑐𝑟𝑒𝑡𝑇𝑟𝑖𝑔𝑔𝑒𝑟.includes("c")&&𝑠𝑒𝑐𝑟𝑒𝑡𝑇𝑟𝑖𝑔𝑔𝑒𝑟.includes("k")&&(document.body.innerHTML='<div style="max-width: 100%;"><video width="100%" height="auto" autoplay loop onplaying="𝑖𝑠𝑉𝑖𝑑𝑒𝑜𝑃𝑙𝑎𝑦𝑖𝑛𝑔=true;"><source src="../Assets/secret.mp4" type="video/mp4">Your browser does not support the video tag.</video></div>'))});
