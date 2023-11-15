@@ -7,6 +7,7 @@ Welcome to the Password Generator project! This simple web application allows us
 - [How to Use](#how-to-use)
 - [Installation](#installation)
 - [License](#license)
+- [Preview](#preview)
 
 ## Features
 
@@ -30,3 +31,9 @@ No installation is required. Simply open the [Password Generator](#) link in you
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
+
+## Preview
+
+Below is a preview of the deployed site. Thank you for taking the time to check out my project!
+
+![preview](./Assets/final-preview.png)
