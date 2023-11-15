@@ -23,8 +23,8 @@ var generateBtn = document.querySelector("#generate");
 // << END LOGIC >>
 
 function generatePassword() {
-  // Welcome the user and explain how to use the password generator
-  alert("Welcome to the password generator! Please answer the following questions to generate your password. If prompted for a yes or no answer, click OK for yes and Cancel for no. Click OK to begin!");
+  // Welcome the user and explain the password generator
+  alert("Welcome to the password generator! Please answer the following questions to generate your password. If prompted for a yes or no answer, click OK for yes and Cancel for no. Click OK to begin.");
 
   // Reset options
   possibleChars = [];
@@ -51,26 +51,30 @@ function generatePassword() {
 
   // Prompt the user for lowercase letters in the password
   let lowercase = confirm("Would you like lowercase letters in your password?");
+  console.log("Lowercase:", lowercase);
   if (lowercase) {
-    possibleChars = possibleChars.concat("abcdefghijkmnopqrstuvwxyz".split(""));
+    possibleChars = possibleChars.concat("abcdefghijkmnopqrstuvwxyz".split("")); // Remove the letter l to avoid confusion with the number 1
   }
 
   // Prompt the user for uppercase letters in the password
   let uppercase = confirm("Would you like uppercase letters in your password?");
+  console.log("Uppercase:", uppercase);
   if (uppercase) {
-    possibleChars = possibleChars.concat("ABCDEFGHJKLMNPQRSTUVWXYZ".split(""));
+    possibleChars = possibleChars.concat("ABCDEFGHJKLMNPQRSTUVWXYZ".split("")); // Remove the letter O to avoid confusion with the number 0
   }
 
   // Prompt the user for numbers in the password
   let numbers = confirm("Would you like numbers in your password?");
+  console.log("Numbers:", numbers);
   if (numbers) {
     possibleChars = possibleChars.concat("0123456789".split(""));
   }
 
   // Prompt the user for special characters in the password
   let special = confirm("Would you like special characters in your password?");
+  console.log("Special:", special);
   if (special) {
-    possibleChars = possibleChars.concat("!@#$%^&*()_+-=[]{};':\",./<>?".split(""));
+    possibleChars = possibleChars.concat("!@#$%^&*()_+-=[]{};':\",./<>?".split("")); // Remove the backtick ` to avoid confusion with the single quote '
   }
 
   // Check if at least one option is selected
@@ -82,16 +86,43 @@ function generatePassword() {
   // Create an empty string to store the password
   var password = "";
 
-  // Loop through the array of possible characters
-  for (var i = 0; i < passwordLength; i++) {
-    // Generate a random number between 0 and the length of the array
+  // Validate that the password contains at least one of each selected character type
+  if (lowercase) {
+    password += getRandomChar("abcdefghijkmnopqrstuvwxyz");
+  }
+
+  if (uppercase) {
+    password += getRandomChar("ABCDEFGHJKLMNPQRSTUVWXYZ");
+  }
+
+  if (numbers) {
+    password += getRandomChar("0123456789");
+  }
+
+  if (special) {
+    password += getRandomChar("!@#$%^&*()_+-=[]{};':\",./<>?");
+  }
+
+  // Complete the remaining characters randomly
+  for (var i = password.length; i < passwordLength; i++) {
     var randomIndex = Math.floor(Math.random() * possibleChars.length);
-    // Add the character at the random index to the password string
     password += possibleChars[randomIndex];
   }
 
+  // Shuffle the password characters to make the order random
+  password = password.split('').sort(function(){return 0.5-Math.random()}).join('');
+
+  // Print the generated password to the console
+  console.log("Generated Password:", password);
+
   // Return the password string
   return password;
+}
+
+// Function to get a random character from a given string
+function getRandomChar(characters) {
+  var randomIndex = Math.floor(Math.random() * characters.length);
+  return characters[randomIndex];
 }
 
 // Write password to the #password input
