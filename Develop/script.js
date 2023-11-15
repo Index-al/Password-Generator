@@ -47,6 +47,50 @@ while (passwordLength === null || isNaN(passwordLength) || passwordLength < 8 ||
   }
 });
 
+// Prompt the user for lowercase letters in password
+generateBtn.addEventListener("click", function () {
+  let lowercase = confirm("Would you like lowercase letters in your password?");
+  // If the user selects lowercase letters, add them to the array
+  if (lowercase) {
+    possibleChars = possibleChars.concat("abcdefghijkmnopqrstuvwxyz".split("")); // Ambiguous characters removed
+  }
+  console.log("lowercase:", lowercase);
+  return lowercase;
+});
+
+// Prompt the user for uppercase letters in password
+generateBtn.addEventListener("click", function () {
+  let uppercase = confirm("Would you like uppercase letters in your password?");
+  // If the user selects uppercase letters, add them to the array
+  if (uppercase) {
+    possibleChars = possibleChars.concat("ABCDEFGHJKLMNPQRSTUVWXYZ".split("")); // Ambiguous characters removed
+  }
+  console.log("uppercase:", uppercase);
+  return uppercase;
+});
+
+// Prompt the user for numbers in password
+generateBtn.addEventListener("click", function () {
+  let numbers = confirm("Would you like numbers in your password?");
+  // If the user selects numbers, add them to the array
+  if (numbers) {
+    possibleChars = possibleChars.concat("0123456789".split(""));
+  }
+  console.log("numbers:", numbers);
+  return numbers;
+});
+
+// Prompt the user for special characters in password
+generateBtn.addEventListener("click", function () {
+  let special = confirm("Would you like special characters in your password?");
+  // If the user selects special characters, add them to the array
+  if (special) {
+    possibleChars = possibleChars.concat("!@#$%^&*()_+-=[]{};':\",./<>?".split(""));
+  }
+  console.log("special:", special);
+  return special;
+});
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
